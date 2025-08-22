@@ -1,0 +1,181 @@
+/* Theme Variables */
+:root {
+  /* Light Theme (default) */
+  --background-color: #ffffff;
+  --containers: linear-gradient(180deg, #eeeeee 0%, #ededed 100%);
+  --containers-br: #cecece;
+  --button-color: linear-gradient(180deg, #e9e9e9 0%, #e0e0e0 100%);
+  --button-color-br: #cfcfcf;
+  --containers-highlight: #131313;
+  --containers-highlight-br: #4c4c4c;
+  --video-color: #ffffff;
+  --text-color-dark: #000000;
+  --text-color: #000000;
+  --danger-color: #dc2626;
+  --primary-color: #2563eb;
+  --border-radius: 16px;
+  --border-radius-sm: 10px;
+  --spacing: 10px;
+  --spacing-sm: 8px;
+  --spacing-lg: 16px;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --background-color: #0d1e22;
+  --containers: linear-gradient(180deg, #17262d 0%, #182a2e 100%);
+  --containers-br: #28444a;
+  --button-color: linear-gradient(180deg, #2b3c3f 0%, #2f4549 100%);
+  --button-color-br: #395257;
+  --containers-highlight: #0f1a1d;
+  --containers-highlight-br: #28414a;
+  --video-color: #0f1c22;
+  --text-color-dark: #ffffff;
+  --text-color: #ffffff;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* Common Components */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.container.narrow {
+  max-width: 720px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--spacing);
+  color: var(--text-color);
+}
+
+/* Buttons */
+button,
+.btn {
+  background: var(--button-color);
+  border: 1px solid var(--button-color-br);
+  color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+button:hover,
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.btn.danger {
+  background: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+}
+
+.btn.subtle {
+  background: transparent;
+  border: 1px solid var(--containers-br);
+}
+
+/* Forms */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--containers);
+  color: var(--text-color);
+  border: 1px solid var(--button-color-br);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Cards */
+.card {
+  background: var(--containers);
+  border: 1px solid var(--containers-br);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Utility Classes */
+.text-muted {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing); }
+.mt-3 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing);
+  }
+  
+  .flex {
+    gap: var(--spacing-sm);
+  }
+}

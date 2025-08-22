@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/room.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div id="roomId" class="pill"></div>
+    </div>
+    <div class="topbar-right">
+      <div id="roomHeading" class="pill"></div>
+      <button id="openChatQuick" class="btn icon-btn" aria-label="Open chat" title="Chat">
+        <span class="material-symbols-outlined ms-icon">chat</span>
+      </button>
+      <button id="togglePanel" class="btn icon-btn" aria-label="Toggle side panel" title="Menu">
+        <span class="material-symbols-outlined ms-icon">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Quick menu shown via the Menu button -->
+  <div id="quickMenu" class="quick-menu hidden" role="menu" aria-hidden="true">
+    <div id="quickThemeGroup" class="theme-group" role="group" aria-label="Theme">
+      <button id="quickThemeSystem" class="btn theme-btn" aria-label="System theme" title="System theme" role="menuitem">
+        <span class="material-symbols-outlined ms-icon">desktop_windows</span>
+      </button>
+      <button id="quickThemeDark" class="btn theme-btn" aria-label="Dark theme" title="Dark theme" role="menuitem">
+        <span class="material-symbols-outlined ms-icon">dark_mode</span>
+      </button>
+      <button id="quickThemeLight" class="btn theme-btn" aria-label="Light theme" title="Light theme" role="menuitem">
+        <span class="material-symbols-outlined ms-icon">light_mode</span>
+      </button>
+    </div>
+    <button id="quickCopyLink" class="btn subtle" role="menuitem">Copy link</button>
+    <button id="quickParticipants" class="btn" role="menuitem">Participants</button>
+  </div>
+
+  <div class="meeting-layout">
+    <main class="stage">
+      <section class="main-stage">
+        <div id="mainWrapper" class="tile large">
+          <video id="mainVideo" autoplay playsinline></video>
+          <div id="mainLabel" class="label">Selected</div>
+          <div class="status-icons" id="mainStatus">
+            <span class="material-symbols-outlined icon cam-icon off" title="Camera off">videocam_off</span>
+            <span class="material-symbols-outlined icon mic-icon off" title="Mic off">mic_off</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="thumbStrip" class="thumb-strip">
+        <div id="videoGrid" class="thumbs"></div>
+      </section>
+
+      <div class="bottom-bar">
+        <button id="toggleMic" class="btn icon-btn" aria-label="Mute microphone" title="Mute/Unmute">
+          <span class="material-symbols-outlined ms-icon">mic</span>
+        </button>
+        <button id="toggleCam" class="btn icon-btn" aria-label="Stop video" title="Start/Stop Camera">
+          <span class="material-symbols-outlined ms-icon">videocam</span>
+        </button>
+        <button id="toggleThumbs" class="btn icon-btn" aria-label="Hide thumbnails" title="Show/Hide Thumbnails">
+          <span class="material-symbols-outlined ms-icon">view_carousel</span>
+        </button>
+        <button id="shareScreen" class="btn icon-btn" aria-label="Share screen" title="Start/Stop Screen Share">
+          <span class="material-symbols-outlined ms-icon">screen_share</span>
+        </button>
+        <a class="btn danger icon-btn" id="leaveBtn" href="/dashboard/index.html" aria-label="Leave" title="Leave">
+          <span class="material-symbols-outlined ms-icon">logout</span>
+        </a>
+      </div>
+
+    </main>
+
+    <aside class="sidepanel">
+      <div class="sidepanel-header">
+      </div>
+      <div class="tabs">
+        <button id="tabParticipants" class="tab active">Participants</button>
+        <button id="tabChat" class="tab">Chat</button>
+      </div>
+      <div id="panelParticipants" class="panel">
+        <ul id="participants" class="list"></ul>
+      </div>
+      <div id="panelChat" class="panel hidden">
+        <div id="chatLog" class="chat-log"></div>
+        <div class="chat-input">
+          <input id="chatText" placeholder="Message" />
+          <button id="sendChat" class="btn">Send</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/room.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* Settings Page Specific Styles */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--containers);
+  border-bottom: 1px solid var(--containers-br);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Form Elements */
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* Avatar Preview */
+.avatar-lg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--containers-highlight);
+  border: 2px solid var(--containers-highlight-br);
+  margin-right: 16px;
+}
+
+/* File Input */
+input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  padding: 8px 0;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch span:first-of-type {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  background: var(--containers-highlight);
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.switch input:checked + span:first-of-type {
+  background: var(--primary-color);
+}
+
+.switch span:first-of-type::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.switch input:checked + span:first-of-type::before {
+  transform: translateX(16px);
+}
+
+/* Save Button */
+#saveBtn {
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+#saveStatus {
+  margin-left: 12px;
+  align-self: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 12px 16px;
+  }
+  
+  .container.narrow {
+    padding: 0 16px 24px;
+  }
+  
+  .form-field {
+    margin-bottom: 16px;
+  }
+}

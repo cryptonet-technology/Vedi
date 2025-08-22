@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard • P2P Meetings</title>
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand">P2P Meetings</div>
+    </div>
+    <div class="topbar-right flex items-center" style="gap: 12px;">
+      <div id="profileChip" class="chip">
+        <span id="chipAvatar" class="chip-avatar">
+          <span class="material-symbols-outlined">account_circle</span>
+        </span>
+        <span id="chipName">Guest</span>
+      </div>
+      <a class="btn subtle" href="/settings/index.html">
+        <span class="material-symbols-outlined" style="font-size: 20px;">settings</span>
+        <span>Settings</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid-2">
+      <div class="card">
+        <h2>Create a meeting</h2>
+        <p class="text-muted">Generate a new room and invite others with the link.</p>
+        <button id="createRoomBtn" class="btn primary">
+          <span class="material-symbols-outlined" style="font-size: 20px;">video_call</span>
+          <span>Create New Meeting</span>
+        </button>
+        <div id="newRoomOut" class="text-muted mt-2"></div>
+      </div>
+
+      <div class="card">
+        <h2>Join a meeting</h2>
+        <label for="roomIdInput">Enter Room ID</label>
+        <div class="flex" style="margin-bottom: 8px;">
+          <input id="roomIdInput" placeholder="e.g. 7K4GQZ" />
+          <button id="joinBtn" class="btn primary">
+            <span class="material-symbols-outlined" style="font-size: 20px;">login</span>
+            <span>Join</span>
+          </button>
+        </div>
+        <div class="text-muted small">You can also paste a full link.</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/theme.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script>
+    // Apply saved theme on load
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+  </script>
+</body>
+</html>
